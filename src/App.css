@@ -1,0 +1,300 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Custom Colors */
+  --navy-dark: #0A1128;
+  --white-broken: #F8F9FA;
+  --teal: #05B2DC;
+  --gold: #D4AF37;
+  --burgundy: #800E13;
+  --gray-dark: #343A40;
+  --gray-light: #CED4DA;
+  
+  /* System Variables */
+  --radius: 0.5rem;
+  --background: var(--white-broken);
+  --foreground: var(--navy-dark);
+  --card: #FFFFFF;
+  --card-foreground: var(--navy-dark);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--navy-dark);
+  --primary: var(--teal);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--gold);
+  --secondary-foreground: var(--navy-dark);
+  --muted: var(--gray-light);
+  --muted-foreground: var(--gray-dark);
+  --accent: var(--burgundy);
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: var(--gray-light);
+  --input: var(--gray-light);
+  --ring: var(--teal);
+}
+
+.dark {
+  --background: var(--navy-dark);
+  --foreground: var(--white-broken);
+  --card: var(--gray-dark);
+  --card-foreground: var(--white-broken);
+  --popover: var(--gray-dark);
+  --popover-foreground: var(--white-broken);
+  --primary: var(--teal);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--gold);
+  --secondary-foreground: var(--navy-dark);
+  --muted: #374151;
+  --muted-foreground: var(--gray-light);
+  --accent: var(--burgundy);
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: var(--gray-dark);
+  --input: var(--gray-dark);
+  --ring: var(--teal);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  button, a.btn, .btn {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+/* Custom Classes */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+.section {
+  @apply py-12 md:py-16 lg:py-24;
+}
+
+.heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl font-bold tracking-tight;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-semibold;
+}
+
+.heading-sm {
+  @apply text-xl md:text-2xl font-semibold;
+}
+
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-md font-medium transition-all;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-3 rounded-md font-medium transition-all;
+}
+
+.btn-outline {
+  @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-md font-medium transition-all;
+}
+
+.card {
+  @apply bg-card text-card-foreground rounded-lg shadow-md p-6;
+}
+
+.nav-link {
+  @apply text-foreground/80 hover:text-foreground transition-colors font-medium;
+}
+
+.nav-link-active {
+  @apply text-primary font-semibold;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-in-out;
+}
+
+.slide-down {
+  animation: slideDown 0.6s ease-in-out;
+}
+
+.slide-left {
+  animation: slideLeft 0.6s ease-in-out;
+}
+
+.slide-right {
+  animation: slideRight 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hero Section */
+.hero {
+  @apply relative overflow-hidden;
+  min-height: 80vh;
+}
+
+.hero-content {
+  @apply relative z-10 flex flex-col items-start justify-center h-full;
+}
+
+.hero-overlay {
+  @apply absolute inset-0;
+  background-color: rgba(10, 17, 40, 0.3);
+}
+
+/* Product Grid */
+.product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.product-card {
+  @apply bg-card rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg;
+}
+
+.product-image {
+  @apply aspect-square w-full object-cover;
+}
+
+.product-info {
+  @apply p-4;
+}
+
+/* Portfolio Section */
+.portfolio-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.portfolio-item {
+  @apply relative overflow-hidden rounded-lg;
+  aspect-ratio: 16/9;
+}
+
+.portfolio-overlay {
+  @apply absolute inset-0 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center;
+  background-color: rgba(10, 17, 40, 0.7);
+}
+
+/* Footer */
+.footer {
+  @apply py-12;
+  background-color: #0A1128;
+  color: white;
+}
+
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+}
+
+/* Responsive Utilities */
+.mobile-only {
+  @apply block md:hidden;
+}
+
+.desktop-only {
+  @apply hidden md:block;
+}
